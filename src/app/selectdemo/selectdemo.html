@@ -1,0 +1,89 @@
+<a ng-href="!#/">back to main</a>
+<div get-data in-meg="vm.resultData"></div>
+
+<!--用filter过滤选项就是失败，因为没过滤一次就会触发所有跟这些选项相关的select的ng-change事件-->
+<!--包括那个无辜的vm.aaaaa-->
+<!-- <ul>
+  <li ng-repeat="g in vm.groupList track by $index">
+      <select ng-model="g.col" 
+              ng-options="c as c.resultColCn for c in vm.resultColumns_group | filter:{ischecked:false}" 
+              ng-change="vm.filterGroupcols(g.col,$index)"
+              class="quickmodel_fc_col" ng-style="{'color':g.col.pkId?'#333':'#999'}">
+        <option value="">请选择</option>
+      </select>
+  </li>
+</ul> -->
+
+
+
+
+<!-- <select ng-model="vm.aaaaa" 
+        ng-options="c as c.resultColCn for c in vm.resultColumns_group | filter:{ischecked:false}" 
+        ng-change="vm.filterGroupcols(vm.aaaaa)"
+        class="quickmodel_fc_col">
+  <option value="">请选择lala</option>
+</select> -->
+
+<ul>
+  <li ng-repeat="g in vm.groupList track by $index">
+      <select ng-model="g.col" 
+              ng-options="c.pkId as c.resultColCn for c in vm.resultColumns_group | filter:{ischecked:false}" 
+              ng-change="vm.filterGroupcols(g.col)"
+              class="quickmodel_fc_col" ng-style="{'color':g.col.pkId?'#333':'#999'}">
+        <option value="">请选择</option>
+      </select>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+<!--验证候选项列表数据变动会不会触发ng-change事件-->
+<select ng-model="vm.a"
+        ng-options="aa as aa for aa in vm.aarr"
+        ng-change="vm.aarr.splice(1,1)">
+  <option value="">选择选择</option>
+</select>
+
+<select ng-model="vm.b"
+        ng-options="aa as aa.name for aa in vm.aobj"
+        ng-change="vm.aobjfun()">
+        <!-- ng-options="aa as aa.name for aa in vm.aobj| filter:{ischecked:false}" 有filter就不行-->
+        
+  <option value="">选择科目</option>
+</select>
+
+<ul>
+  <li ng-repeat="g in vm.groupList track by $index">
+      <select ng-model="g.col" 
+              ng-options="c.pkId as c.resultColCn for c in vm.resultColumns_group" 
+              ng-show="!c[$index].ischecked"
+              ng-change="vm.filterGroupcols(g.col)"
+              class="quickmodel_fc_col" ng-style="{'color':g.col.pkId?'#333':'#999'}">
+        <option value="">请选择一下</option>
+      </select>
+  </li>
+</ul>
+
+<!--多选下拉框-->
+<div class="dropdown" uib-dropdown auto-close="outsideClick">
+  <input type="text" uib-dropdown-toggle 
+         placeholder="请选择"
+         ng-model="vm.groupshowcols"
+         class="quickmodel_fc_col"
+         style="width:96%;position: relative;padding-left: 8px;" ng-style="{'color':vm.groupshowcols?'#333':'#999'}" />
+  <i class="fa fa-caret-down quickmodel_arrow"></i>
+  <ul class="dropdown-menu" uib-dropdown-menu>
+    <li ng-repeat="c in vm.resultColumns track by $index" >
+      <input type="checkbox" name="checkboxs" id="checkbox{{$index}}" ng-click="vm.checkcol(c)">
+      <label for="checkbox{{$index}}" ng-style="{'color':c.checked == true?'#3772e7':'#666'}" 
+              style="display: inline-block;
+              width: 100%;
+              padding-left: 15px;">{{c.resultColCn}}</label>
+    </li>
+  </ul>
+</div>

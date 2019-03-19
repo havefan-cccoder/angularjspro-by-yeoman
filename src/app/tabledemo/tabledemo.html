@@ -1,0 +1,34 @@
+<a ng-href="!#/">back to main</a>
+
+<table>
+    <thead>
+        <tr>
+            <th ng-repeat="a in vm.aa">{{a}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>{{abc}}</td>
+            <td>{{vm.b}}</td>
+        </tr>
+    </tbody>
+</table>
+<p>修改列排序</p>
+<table>
+    <tbody>
+        <tr  ng-repeat="col in vm.sceneCol track by $index">
+            <td>{{col}}</td>
+            <td >
+                <select ng-model="vm.direction[$index]" 
+                        ng-change="vm.moveColumn($index,vm.direction[$index])">
+                    <option value="" selected = "selected">请选择</option>
+                    <option value="bottom">移到底部</option>
+                    <option value="up">上移</option>
+                    <option value="down">下移</option>
+                    <option value="top">移到顶部</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
