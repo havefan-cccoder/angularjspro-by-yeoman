@@ -1,0 +1,69 @@
+<a ng-href="!#/">back to main</a>
+
+<div class="block_items">
+    方向+是否换行：
+    <div style="width:400px;border: 1px solid red;margin-bottom: 20px;">
+        <div class="box1">
+            <div class="item" ng-repeat="item in vm.block_item_list1 track by $index">{{$index+1}}</div>
+        </div>
+    </div>
+    <div style="width:400px;border: 1px solid red;margin-bottom: 20px;">
+        <div class="box2">
+            <div class="item" ng-repeat="item in vm.block_item_list1 track by $index">{{$index+1}}</div>
+        </div>
+    </div>
+    水平对齐：
+    <div style="width:400px;border: 1px solid red;margin-bottom: 20px;">
+        <div class="box3">
+            <div class="item" ng-repeat="item in vm.block_item_list2 track by $index">{{$index+1}}</div>
+        </div>
+    </div>
+    <div style="width:400px;border: 1px solid red;margin-bottom: 20px;">
+        <div class="box4">
+            <div class="item" ng-repeat="item in vm.block_item_list2 track by $index">{{$index+1}}</div>
+        </div>
+    </div>
+    竖直对齐：
+    <div style="width:400px;border: 1px solid red;margin-bottom: 20px;">
+        <div class="box5">
+            <div class="item" style="height:100px;">1</div>
+            <div class="item" style="height:50px;">2</div>
+            <div class="item" style="height:150px;">3</div>
+        </div>
+    </div>
+    <div style="width:400px;border: 1px solid red;margin-bottom: 20px;">
+        <div class="box5">
+            <div style="background:rgba(0, 0, 0, 0.3)">align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</div>
+            <div style="background:rgba(0, 0, 0, 0.1)">
+                    flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
+                    flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
+            </div>
+            <div style="background:rgba(0, 0, 0, 0.3)">3wer342</div>
+            <div style="background:rgba(0, 0, 0, 0.1)">3234532345654345643</div>
+        </div>
+    </div>
+</div>
+
+<div class="inline_items">
+    <div class="box">
+        <span class="item" ng-repeat="item in vm.block_item_list track by $index">哈哈</span>
+    </div>
+    <div class="box1">
+        <span class="item" style="height:100px;">1</span>
+        <span class="item" style="height:50px;">
+                self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align
+        </span>
+        <span class="item" style="height:150px;">3</span>
+    </div>
+</div>
+
+<p>
+    备注：<br /> 
+    flex属性元素的属性：是flex-grow（默认为0，即如果存在剩余空间，也不放大）, 
+    <br />
+    flex-shrink（默认为1，即如果空间不足，该项目将缩小） 和 
+    <br/>
+    flex-basis(设置宽高)的简写，默认值为0 1 auto。后两个属性可选。
+</p>
+<img src="../../assets/images/demo-note/WX20190320-165253.png" alt="">
+<img src="../../assets/images/demo-note/WX20190320-165458.png" alt="">

@@ -1,0 +1,52 @@
+.block_items .item{
+    width: 50px;
+    height: 40px;
+    background: gray;
+    margin: 10px;
+}
+
+.inline_items .item{
+    background: rgba(102, 51, 153, 0.445);
+    margin: 10px;
+}
+
+/*块级元素*/
+.block_items .box1{
+    display: flex;
+    flex-flow: row wrap;/*direction横竖 + wrap换行*/
+}
+
+.block_items .box2{
+    display: flex;
+    flex-flow: row-reverse wrap;/*direction + wrap*/
+}
+
+.block_items .box3{
+    display: flex;
+    justify-content: center;/*水平对齐*/
+}
+
+.block_items .box4{
+    display: flex;
+    justify-content: space-evenly;/*对齐*/
+}
+
+.block_items .box5{
+    display: flex;
+    align-items: flex-end;/*竖直对齐center*/
+}
+
+.block_items .box5 div:last-child{
+    align-self: flex-start;/*可以覆盖align-items的单独属性*/
+}
+/*ps:多根轴线对齐align-content属性*/
+
+
+/*行内元素*/
+.inline_items .box{
+    display: inline-flex;
+}
+
+.inline_items .box .item:last-child{
+    align-self: flex-end;
+}

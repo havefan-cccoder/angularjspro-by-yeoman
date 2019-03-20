@@ -22,6 +22,11 @@
         controller: 'SelectDemoController',
         controllerAs: 'vm'
       })
+      .when('/flexdemo', {
+        templateUrl: 'app/flexdemo/flexdemo.html',
+        controller: 'FlexDemoController',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });
