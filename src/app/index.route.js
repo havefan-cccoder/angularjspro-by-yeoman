@@ -27,6 +27,11 @@
         controller: 'FlexDemoController',
         controllerAs: 'vm'
       })
+      .when('/otherlittledemo', {
+        templateUrl: 'app/otherlittledemo/otherlittledemo.html'
+        // controller: 'OtherLittleDemoController',
+        // controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });
