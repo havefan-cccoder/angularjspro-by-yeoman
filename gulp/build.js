@@ -36,21 +36,40 @@ gulp.task('html', ['inject', 'partials'], function () {
 
   var htmlFilter = $.filter('*.html', { restore: true });
   var jsFilter = $.filter('**/*.js', { restore: true });
+  //公司
+  // var jsComFilter = $.filter('**/**/*.js', { restore: true });
+
   var cssFilter = $.filter('**/*.css', { restore: true });
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe($.useref())
     .pipe(jsFilter)
+
+  //公司
+    // .pipe(jsComFilter)
     .pipe($.sourcemaps.init())
     .pipe($.ngAnnotate())
     .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
     .pipe($.rev())
     .pipe($.sourcemaps.write('maps'))
     .pipe(jsFilter.restore)
+  //公司
+
+    // .pipe(jsComFilter.restore)
+    // .pipe($.replace(/[\.\.\/]+assets/g, '/ml/assets'))
+    // .pipe($.replace(/assets\/sound/g, '/ml/assets/sound'))
+    //   .pipe($.replace(/\"assets\/images/g, '\"/ml/assets/images'))
+    //   .pipe($.replace(/\/ComparisonMaster/g, ''))
+
+    // .pipe($.injectVersion())
+
     .pipe(cssFilter)
     // .pipe($.sourcemaps.init())
-    .pipe($.cssnano())
+  //公司
+
+    // .pipe($.cssnano({reduceIdents: false,zindex: false,normalizeUrl:true}))
+
     .pipe($.rev())
     // .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)

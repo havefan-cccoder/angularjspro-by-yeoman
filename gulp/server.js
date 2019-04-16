@@ -32,8 +32,17 @@ function browserSyncInit(baseDir, browser) {
    * Example: $http.get('/users') requests will be automatically proxified.
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
+   * server.middleware = proxyMiddleware('/user', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
    */
-  // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true});
+
+  // server.middleware = proxyMiddleware('/master', {
+  //   target: 'http://10.4.106.6:8089/',
+  //   // target: 'http://10.4.104.130:8054/',
+  //   pathRewrite: {'^/master/': '/'},
+  //   cookieDomainRewrite: true,
+  //   changeOrigin: true
+  // });
+
 
   browserSync.instance = browserSync.init({
     startPath: '/',
